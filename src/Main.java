@@ -22,7 +22,7 @@ public class Main
             switch (menuChoice)
             {
                 case "A","a":
-                    myArrList.add(SafeInput.getNonZeroLenString(in,"Please enter a name")); //This one is probably too simple to put as a method.
+                    addOption(in, myArrList);
                     break;
                 case "D","d":
                     deleteOption(in,myArrList);
@@ -37,25 +37,6 @@ public class Main
                     done = quitOption(in);
                     break;
             }
-            //ee if (menuChoice.equalsIgnoreCase("A"))
-            //{
-            //    myArrList.add(SafeInput.getNonZeroLenString(in,"Please enter a name"));
-            //}
-            //else if (menuChoice.equals("D"))
-            //{
-            //    myArrList.remove(SafeInput.getRangedInt(in, "Removing something from the list. Please enter a number between 1 and " + myArrList.size() , 1, myArrList.size()-1));
-            //}
-            //else if (menuChoice.equals("I"))
-           //{
-            //}
-            //else if(menuChoice.equals("P"))
-            //{
-            //    printOption(myArrList);
-            //}
-            //else
-            //{
-            //    done = quitOption(in);
-            //}
 
             //System.out.println(); //clearing a bit of area before printing the current list
             //printOption(myArrList); //Removed because it feels like it invalidates the print menu option and might rapidly spam output box at large list size.
@@ -105,5 +86,12 @@ public class Main
         insertItem = SafeInput.getNonZeroLenString(in, "Please enter an item into the list");
 
         myArrList.add((insertIndex -1), insertItem);
+    }
+
+    public static void addOption (Scanner in, ArrayList<String> myArrList)
+    {
+        myArrList.add(SafeInput.getNonZeroLenString(in,"Please enter a name"));
+        //Feels like a waste to make a one line method that contains usage of a method.
+        //But it is by the rubric.
     }
 }
